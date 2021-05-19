@@ -1,0 +1,35 @@
+on:
+  push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - '*.*.*' # Push events to matching v*, i.e. v1.0, v20.15.10
+
+name: Create Release
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Get Release Tag
+      id: gettag
+      run: echo "::set-output name=tag::$(echo ${GITHUB_REF:10})"
+    - name: Run tests
+      run:  docker-compose -f docker-compose.test.yml up --abort-on-container-exit --exit-code-from django
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to GHCR
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.CR_PAT_REPOSITORY }}
+    - name: Build/Test and Push
+      uses: docker/build-push-action@v2
+      with:
+        target: app
+        push: true
+        tags: |
+          ghcr.io/davlum/poet:latest
+          ghcr.io/davlum/poet:${{ steps.gettag.outputs.tag }}
