@@ -1,16 +1,21 @@
-FROM python:3.7
-ENV PYTHONUNBUFFERED 1
+FROM python:3.7-slim as app
+
+RUN mkdir /home/poet && cd /home/poet
+
+WORKDIR /home/poet
 
 RUN apt-get update -y && apt-get install -y \
-            python-psycopg2 \
             ffmpeg \
             gettext \
-            postgresql \
             libavcodec-extra \
         && apt-get clean
 
-RUN mkdir /code
-WORKDIR /code
-ADD dev_requirements.txt /code/
-RUN pip install -r dev_requirements.txt
-ADD . /code/
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+FROM app AS test
+
+RUN pip install --no-cache-dir -r dev_requirements.txt
