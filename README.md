@@ -1,6 +1,6 @@
 # poet
 
-[![Build Status](https://travis-ci.com/davlum/poet.svg?branch=master)](https://travis-ci.com/davlum/poet)[![Coverage Status](https://coveralls.io/repos/github/davlum/poet/badge.svg?branch=HEAD)](https://coveralls.io/github/davlum/poet?branch=HEAD)
+![build](https://github.com/davlum/poet/workflows/test/badge.svg)
 
 This is the code for the digital audio repository, [Poética Sonora](https://poeticasonora.me/). More about Poética Sonora can be found [here](https://poeticasonora.mx/).
 

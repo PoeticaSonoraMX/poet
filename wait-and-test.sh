@@ -11,4 +11,3 @@ done
 >&2 echo "Postgres is up - executing command"
 
 python3 manage.py test
-coveralls
