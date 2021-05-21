@@ -8,6 +8,7 @@ RUN apt-get update -y && apt-get install -y \
             ffmpeg \
             gettext \
             libavcodec-extra \
+            gcc \
         && apt-get clean
 
 COPY requirements.txt .

@@ -22,14 +22,13 @@ jobs:
     - name: Login to GHCR
       uses: docker/login-action@v1
       with:
-        registry: ghcr.io
-        username: ${{ github.repository_owner }}
-        password: ${{ secrets.CR_PAT_REPOSITORY }}
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Build/Test and Push
       uses: docker/build-push-action@v2
       with:
         target: app
         push: true
         tags: |
-          ghcr.io/davlum/poet:latest
-          ghcr.io/davlum/poet:${{ steps.gettag.outputs.tag }}
+          davlum/poet:latest
+          davlum/poet:${{ steps.gettag.outputs.tag }}
