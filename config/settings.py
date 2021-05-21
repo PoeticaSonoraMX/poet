@@ -33,9 +33,13 @@ if not DEBUG:
         'localhost'
     ]
 
+DEV_APPS = []
+
 # Application definition
+if DEBUG:
+    DEV_APPS = ['django_nose']
+
 INSTALLED_APPS = [
-    'django_nose',
     'django_jinja',
     'simple_history',
     'app.apps.PoetConfig',
@@ -46,7 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.postgres'
-]
+] + DEV_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -138,11 +142,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ['DB_NAME'],
-        'USER': os.environ['DB_USER'],
-        'PASSWORD': os.environ['DB_PASSWORD'],
+        'NAME': os.environ['POSTGRES_DB'],
+        'USER': os.environ['POSTGRES_USER'],
+        'PASSWORD': os.environ['POSTGRES_PASSWORD'],
         'HOST': os.environ['DB_HOST'],
-        'PORT': os.environ['DB_PORT'],
+        'PORT': '5432',
     }
 }
 

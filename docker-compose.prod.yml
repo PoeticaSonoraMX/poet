@@ -1,0 +1,43 @@
+version: '3'
+services:
+  db:
+    image: postgres:12-alpine
+    env_file: poet.env
+    volumes:
+    - ./postgres_data:/var/lib/postgresql/data/
+  django:
+    build: .
+    volumes:
+      - .:/home/poet
+      - /home/poet/media:/home/poet/media
+      - /home/poet/static-root:/home/poet/static-root
+    env_file: poet.env
+    environment:
+      - VIRTUAL_HOST=poeticasonora.unam.mx
+      - LETSENCRYPT_HOST=poeticasonora.unam.mx
+    command: ["./wait-and-run.sh"]
+    depends_on:
+      - db
+
+  nginx-proxy:
+    restart: always
+    image: nginxproxy/nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "/etc/nginx/vhost.d"
+      - "/usr/share/nginx/html"
+      - "/var/run/docker.sock:/tmp/docker.sock:ro"
+      - /etc/nginx/certs:/etc/nginx/certs
+      - ./default_locations:/etc/nginx/vhost.d/default_locations
+      - /home/poet/media:/var/www/media
+      - /home/poet/static-root:/var/www/static-root
+
+  letsencrypt:
+    restart: always
+    image: nginxproxy/acme-companion
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    volumes_from:
+      - "nginx-proxy"
