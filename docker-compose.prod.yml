@@ -30,7 +30,7 @@ services:
       - "/usr/share/nginx/html"
       - "/var/run/docker.sock:/tmp/docker.sock:ro"
       - /etc/nginx/certs:/etc/nginx/certs
-      - ./default_locations:/etc/nginx/vhost.d/default_locations
+      - ./default_location:/etc/nginx/vhost.d/default_location
       - /home/poet/media:/var/www/media
       - /home/poet/static-root:/var/www/static-root
 
