@@ -28,7 +28,7 @@ ALLOWED_HOSTS = []
 
 if not DEBUG:
     ALLOWED_HOSTS = [
-        '127.0.0.1:8000',
+        '127.0.0.1:80',
         '*',
         'localhost'
     ]
