@@ -1,6 +1,0 @@
-location /static/ {
-    alias /var/www/static-root/;
-}
-location /media/ {
-    alias /var/www/media/;
-}

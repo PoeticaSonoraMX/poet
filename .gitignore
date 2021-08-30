@@ -7,3 +7,4 @@ share/
 *.log
 .coverage
 postgres_data
+.idea/
