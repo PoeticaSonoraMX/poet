@@ -25,10 +25,6 @@ def paginate_list(request, page_list, number_of_pages=10):
     }
 
 
-def index(request):
-    return redirect('/inicio')
-
-
 def home(request):
     return render(request, 'poet/home.html.j2')
 
