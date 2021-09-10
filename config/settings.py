@@ -219,3 +219,8 @@ NOSE_ARGS = [
     '--with-coverage',
     '--cover-package=app',
 ]
+
+# To have the project at a subdirectory
+# https://stackoverflow.com/questions/28147916/how-to-host-a-django-project-in-a-subpath
+if not DEBUG:
+    FORCE_SCRIPT_NAME = '/rda'
