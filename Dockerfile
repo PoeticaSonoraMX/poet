@@ -9,6 +9,8 @@ RUN apt-get update -y && apt-get install -y \
             gettext \
             libavcodec-extra \
             gcc \
+            libpcre3 \
+            libpcre3-dev \
         && apt-get clean
 
 COPY requirements.txt .

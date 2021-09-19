@@ -6,7 +6,9 @@ services:
     volumes:
     - /home/www/pg_data:/var/lib/postgresql/data/
   django:
-    build: .
+    build:
+      target: app
+      context: .
     ports:
       - "8000:8000"
     volumes:
