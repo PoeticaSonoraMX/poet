@@ -14,6 +14,7 @@ services:
     volumes:
       - /home/www/media:/home/www/media
       - /home/www/static:/home/www/static
+      - /home/www/poet/socket:/home/poetica/socket
     env_file: /home/poetica/environ
     command: ["./wait-and-run.sh"]
     depends_on:
