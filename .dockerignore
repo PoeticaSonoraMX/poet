@@ -1,4 +1,5 @@
 wordpress/
 postgres_data/
 docs/
+venv/
 

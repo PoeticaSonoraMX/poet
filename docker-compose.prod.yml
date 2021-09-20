@@ -12,7 +12,6 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - .:/home/poetica
       - /home/www/media:/home/www/media
       - /home/www/static:/home/www/static
     env_file: /home/poetica/environ

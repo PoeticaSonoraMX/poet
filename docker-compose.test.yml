@@ -7,8 +7,6 @@ services:
     build: .
     ports:
       - "8000:8000"
-    volumes:
-    - .:/home/poetica
     env_file: poet.env
     command: ["./wait-and-test.sh"]
     depends_on:
