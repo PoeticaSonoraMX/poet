@@ -35,7 +35,7 @@ def get_affiliated_entities(entity_id: int):
 
 def get_recordings(entity_id: int):
     q = """
-    SELECT {}
+    SELECT DISTINCT {}
     FROM poet_entity_to_work_rel rel
     JOIN poet_work w ON rel.to_work = w.id
     JOIN poet_work_collection c ON c.id = w.in_collection
