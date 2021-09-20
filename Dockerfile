@@ -9,16 +9,18 @@ RUN apt-get update -y && apt-get install -y \
             libpcre3-dev \
         && apt-get clean
 
+RUN pip install --upgrade pip
+
 RUN adduser --disabled-password poetica
 USER poetica
 WORKDIR /home/poetica
 ENV PATH $PATH:/home/poetica/.local/bin
 
-COPY requirements.txt .
+COPY --chown=poetica:poetica requirements.txt .
 
 RUN pip install --user --no-cache-dir -r requirements.txt
 
-COPY . .
+COPY --chown=poetica:poetica . .
 
 FROM app AS test
 
