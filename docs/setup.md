@@ -1,13 +1,16 @@
 # Setup
 
-The server is currently running Debian, Nginx, Python and PostgreSQL. [This tutorial](
-https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-) is a very similar to how the server is configured now.
+The server is currently running:
+* Debian as the OS
+* Nginx for serving
+* Python and PostgreSQL run with docker-compose for Django
+* PHP and MySQL run with docker-compose for Wordpress
 
-Because of limited resouces, swap memory is used on the server. Swap memory was added with the help of [this tutorial](https://www.digitalocean.com/community/tutorials/how-to-configure-virtual-memory-swap-file-on-a-vps).
+If you find yourself needing to update PostgreSQL, I recommend [this tutorial][pg-tut].
 
-If you find yourself needing to update PostgreSQL, I recommend [this tutorial](https://www.pontikis.net/blog/update-postgres-major-version-in-debian).
+[pg-tut]: https://www.pontikis.net/blog/update-postgres-major-version-in-debian
 
-# Translation
+## Translation
 
 In order to generate the .po file:
 ```
@@ -17,3 +20,10 @@ In order to compile the files:
 ```
 python manage.py compilemessages
 ```
+
+## Django in a subpath
+
+The repository is installed at https://poeticasonora.unam.mx/rda, which is a subpath (/rda).
+This requires [additional setup in Nginx][nginx-django-subpath].
+
+[nginx-django-subpath]: https://newbedev.com/run-django-app-via-nginx-uwsgi-in-a-subpath

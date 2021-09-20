@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# wait-and-run.sh
+# wait-and-test.sh
 
 set -e
 
 sleep 10
 
-python3 manage.py test
+python manage.py test

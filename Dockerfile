@@ -1,10 +1,7 @@
 FROM python:3.7-slim as app
 
-RUN mkdir /home/poet && cd /home/poet
-
-WORKDIR /home/poet
-
 RUN apt-get update -y && apt-get install -y \
+            build-essential \
             ffmpeg \
             gettext \
             libavcodec-extra \
@@ -13,12 +10,16 @@ RUN apt-get update -y && apt-get install -y \
             libpcre3-dev \
         && apt-get clean
 
-COPY requirements.txt .
+RUN adduser --disabled-password poetica
+USER poetica
+WORKDIR /home/poetica
 
-RUN pip install --no-cache-dir -r requirements.txt
+COPY --chown=poetica:poetica requirements.txt .
 
-COPY . .
+RUN pip install --user --no-warn-script-location --no-cache-dir -r requirements.txt
+
+COPY --chown=poetica:poetica . .
 
 FROM app AS test
 
-RUN pip install --no-cache-dir -r dev_requirements.txt
+RUN pip install --user --no-warn-script-location --no-cache-dir -r dev_requirements.txt

@@ -9,9 +9,13 @@ services:
     build: .
     ports:
       - "8000:8000"
-    volumes:
-    - .:/home/poet
     env_file: poet.env
+    volumes:
+      - ./app:/home/poetica/app
+      - ./static:/home/poetica/static
+      - ./config:/home/poetica/config
+      - ./locale:/home/poetica/locale
+      - ./test:/home/poetica/test
     command: ["./wait-and-run.sh"]
     depends_on:
       - db

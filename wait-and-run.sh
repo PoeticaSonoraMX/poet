@@ -5,13 +5,12 @@ set -e
 
 sleep 10
 
-python3 manage.py migrate
-
+python manage.py migrate
 
 if [ "$DEBUG" == "true" ]
 then
-  python3 manage.py runserver 0.0.0.0:8000
+  python manage.py runserver 0.0.0.0:8000
 else
-  python3 manage.py collectstatic --no-input --clear
+  python manage.py collectstatic --no-input --clear
   uwsgi --ini /home/poet/uwsgi.ini
 fi
