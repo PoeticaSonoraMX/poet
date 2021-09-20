@@ -24,6 +24,8 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (os.environ['DEBUG'] == 'true')
 
+SUBPATH = '' if DEBUG else '/rda'
+
 ALLOWED_HOSTS = []
 
 if not DEBUG:
