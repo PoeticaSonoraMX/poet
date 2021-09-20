@@ -16,10 +16,10 @@ WORKDIR /home/poetica
 
 COPY --chown=poetica:poetica requirements.txt .
 
-RUN pip install --user --no-cache-dir -r requirements.txt
+RUN pip install --user --no-warn-script-location --no-cache-dir -r requirements.txt
 
 COPY --chown=poetica:poetica . .
 
 FROM app AS test
 
-RUN pip install --user --no-cache-dir -r dev_requirements.txt
+RUN pip install --user --no-warn-script-location --no-cache-dir -r dev_requirements.txt
