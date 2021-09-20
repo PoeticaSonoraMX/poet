@@ -9,10 +9,10 @@ RUN apt-get update -y && apt-get install -y \
             libpcre3-dev \
         && apt-get clean
 
-RUN mkdir /home/poet && cd /home/poet
 RUN adduser --disabled-password poetica
 USER poetica
-WORKDIR /home/poet
+WORKDIR /home/poetica
+ENV PATH $PATH:/home/poetica/.local/bin
 
 COPY requirements.txt .
 
