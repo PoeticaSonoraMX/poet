@@ -14,6 +14,8 @@ REQUIRED_WORK_FIELDS = """
         w.languages,
         w.waveform_peaks,
         w.copyright,
+        w.copyright_country,
+        w.copyright_version,
         w.date_recorded, 
         w.date_published, 
         w.date_digitalized,
