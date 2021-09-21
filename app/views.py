@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from config.settings import SUBPATH
 from app.controllers.work import get_work_context
 from app.controllers.search import get_search_context
 from app.controllers.entity import get_entity_context
@@ -31,15 +32,16 @@ def home(request):
 
 def work(request, work_id):
     context = get_work_context(work_id)
-    admin_link = '/admin/app/work/{}/change'.format(work_id)
-    context['admin_link'] = admin_link
+    admin_link = f'{SUBPATH}/admin/app/work/{work_id}/change'
 
+    context['admin_link'] = admin_link
     return render(request, 'poet/work.html.j2', context)
 
 
 def collection(request, collection_id):
     context = get_work_collection_context(collection_id)
-    admin_link = '/admin/app/workcollection/{}/change'.format(collection_id)
+    admin_link = f'{SUBPATH}/admin/app/workcollection/{collection_id}/change'
+
     context['admin_link'] = admin_link
     context['works'] = paginate_list(request, context['works'])
 
@@ -48,7 +50,7 @@ def collection(request, collection_id):
 
 def entity(request, entity_id):
     context = get_entity_context(entity_id)
-    admin_link = '/admin/app/entity/{}/change'.format(entity_id)
+    admin_link = f'{SUBPATH}/admin/app/entity/{entity_id}/change'
     context['admin_link'] = admin_link
     context['works'] = paginate_list(request, context['works'])
 
