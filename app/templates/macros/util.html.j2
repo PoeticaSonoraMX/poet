@@ -131,12 +131,10 @@
 
 
 {% macro render_copyright(work) %}
-<div>
-    <p class="text-center center-block">
-        {{ non(work.copyright) }} <br>
-        {{ non(work.copyright_date) }} <br>
-        {{ non(work.copyright_country) }}
-    </p>
+<div class="text-center center-block">
+    <br><br>
+    <h3>{{ _( "License" ) }}</h3>
+    <p>{{ non(work.copyright) }}&nbsp{{ non(work.copyright_version) }}&nbsp{{ non(work.copyright_country) }}</p>
 </div>
 {% endmacro %}
 
