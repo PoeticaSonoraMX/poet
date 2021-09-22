@@ -18,18 +18,18 @@
 
 {% macro render_title(is_authenticated, admin_url, title) %}
 <div class="row">
-    <div class="col-md-10">
-        <h2>
-        {{ title }}
-        </h2>
-    </div>
-    <div class="col-md-2">
-        {% if is_authenticated %}
-            <strong>
-                <a class="pull-right" href="{{ admin_url }}">{{ _('Edit') }}</a>
-            </strong>
-        {% endif %}
-    </div>
+    {% if is_authenticated %}
+        <div class="col-md-10">
+            <h2>{{ title }}</h2>
+        </div>
+        <div class="col-md-2">
+            <strong><a class="pull-right" href="{{ admin_url }}">{{ _('Edit') }}</a></strong>
+        </div>
+    {% else %}
+         <div class="text-center">
+            <h2>{{ title }}</h2>
+        </div>
+    {% endif %}
 </div>
 {% endmacro %}
 
@@ -84,7 +84,6 @@
 {% macro render_comments(work) %}
     <div>
         {% if work.commentary is not none %}
-            <h4>{{ _('Commentary') }}</h4>
             <p class="skinny center-block"> {{ work.commentary }}</p>
             <br>
         {% endif %}
@@ -96,7 +95,9 @@
 <div>
     {{ render_search_entity(_('Composers'), entity.composers) }}
     {{ render_search_entity(_('Interpreters'), entity.interpreters) }}
-    {{ render_search_entity(_('Other'), entity.others) }}
+    <div class="hide-mobile">
+        {{ render_search_entity(_('Other'), entity.others) }}
+    </div>
 </div>
 {% endmacro %}
 
@@ -141,26 +142,26 @@
 
 {% macro render_work_dates(work) %}
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 col-sm-6 col-xs-6">
         {{ _( "Published" ) }}:
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 col-sm-6 col-xs-6">
          {{ work.date_published }}
     </div>
 </div>
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 col-sm-6 col-xs-6">
         {{ _( "Recorded" ) }}:
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 col-sm-6 col-xs-6">
          {{ work.date_recorded }}
     </div>
 </div>
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 col-sm-6 col-xs-6">
         {{ _( "Contributed" ) }}:
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 col-sm-6 col-xs-6">
          {{ work.date_contributed }}
     </div>
 </div>
@@ -189,12 +190,15 @@
                                     <h3>{{ entry.work.work_name }}</h3>
                                 </a>
                             </div>
-                            {{ render_work_dates(entry.work) }}
+                            <div>
+                                {{ render_work_dates(entry.work) }}
+                            </div>
                         </td>
                         <td class="col-md-6">
                             <div class="wavesurfer-padding">
                                 {{ render_search_entities(entry.entities) }}
                             </div>
+                            <br>
                             <div>
                                 {{ _('Part of') }}
                                 <strong>
@@ -202,7 +206,7 @@
                                 </strong>
                             </div>
                             <br>
-                            <div>
+                            <div class="hide-mobile">
                                 {% for tag in entry.work.tags %}
                                     <strong>
                                         <a href="{{ url('search') }}?term={{ tag }}&filter=tags">{{ tag }}</a> &nbsp

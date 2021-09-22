@@ -1,21 +1,29 @@
-    <nav class="navbar navbar-default">
-      <div class="search-bar-margin">
+<nav class="navbar navbar-default">
+    <div class="search-bar-margin">
         <div class="navbar-header">
-          <a class="navbar-brand" href="http://poeticasonora.mx">Poética Sonora</a>
+            <a class="navbar-brand" href="http://poeticasonora.mx">Poética Sonora</a>
+            <div class="navbar-brand show-mobile" style="float: right;">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="glyphicon glyphicon-menu-hamburger"></span>
+                </button>
+            </div>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="{{ url('home') }}">{{ _('Home') }}</a></li>
-            <li><a href="http://poeticasonora.mx/Sobre-el-proyecto">{{ _('About') }}</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            {% if not user.is_authenticated %}
+
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="{{ url('home') }}">{{ _('Home') }}</a></li>
+                <li><a href="http://poeticasonora.mx/Sobre-el-proyecto">{{ _('About') }}</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if not user.is_authenticated %}
                 <li><a href="{{ url('admin:index') }}">{{ _('Login') }}</a></li>
-            {% else %}
+                {% else %}
                 <li><a href="{{ url('admin:index') }}">{{ _('Admin') }}</a></li>
                 <li><a href="{{ url('admin:logout') }}">{{ _('Logout') }}</a></li>
-            {% endif %}
-          </ul>
+                {% endif %}
+            </ul>
         </div>
-      </div>
-    </nav>
+    </div>
+</nav>
+

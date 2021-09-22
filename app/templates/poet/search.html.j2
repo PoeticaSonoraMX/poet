@@ -2,7 +2,7 @@
 {% from 'macros/util.html.j2' import render_recordings, render_paginator %}
 
 {% block resultbody %}
-    <div class="container search-container">
+    <div class="center-block sub-container">
         <div class="row">
            <div class="col-md-10">
                {{ render_recordings(works.page) }}
@@ -11,7 +11,9 @@
                 {% include 'includes/_sidebar.html.j2' %}
             </div>
         </div>
+        <div class="text-center">
             {{ render_paginator(works.page, works.search_terms) }}
+        </div>
     </div>
 
 
