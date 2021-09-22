@@ -1,7 +1,7 @@
 {% from 'macros/util.html.j2' import render_data_links %}
 
 <div class="sidebar-nav-fixed pull-right affix">
-    <div class="well sidebar-dims">
+    <div class="well sidebar-dims hide-mobile">
         <div>
             <h3><i>{{ _('Tags') }}</i></h3>
             {% for tag in metadata.tags %}

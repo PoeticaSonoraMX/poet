@@ -1,9 +1,10 @@
 <form name="search-form" role="form" action="{{ url('search') }}" method="get">
+    <br>
     <div class="row search-bar-margin">
-        <div class="col-md-8 no-col-pad">
+        <div class="col-md-8 col-sm-6 col-xs-6 no-col-pad">
             <input name="term" type="text" class="form-control input-searchbar" placeholder="{{ _('Search') }}"/>
         </div>
-        <div class="col-md-3 no-col-pad">
+        <div class="col-md-3 col-sm-5 col-xs-5 no-col-pad">
             <label for="labelid" style="display: none"></label>
             <select id="labelid" name="filter" class="form-control dropdown-searchbar">
               {% for field in get_search_fields() %}
@@ -23,7 +24,7 @@
               {% endfor %}
             </select>
         </div>
-        <div class="col-md-1 no-col-pad">
+        <div class="col-md-1 col-sm-1 col-xs-1 no-col-pad">
             <button type="submit" class="btn btn-primary">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
             </button>

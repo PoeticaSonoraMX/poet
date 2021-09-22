@@ -3,36 +3,37 @@
     render_copyright, render_recordings, render_entity_ls, render_title %}
 
 {% block resultbody %}
-    <div class="center-block" style="width: 80%;">
+    <div class="center-block sub-container">
         {{ render_title(user.is_authenticated, admin_link, collection.collection_name) }}
         <hr>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    {{ render_entity_ls(_('Composers'), entities.composers) }}
-                    {{ render_entity_ls(_('Interpreters'), entities.interpreters) }}
-                    {{ render_entity_ls(_('Other'), entities.others) }}
-                    <br>
-                    <div>
-                        {% if collection.origin is not none %}
-                            <h4>Giro</h4>
-                            <h3 class="indented"> {{ collection.origin }}</h3>
-                            <br>
-                        {% endif %}
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    {% if collection.image is not none %}
-                    <div class="text-center fade-in">
-                        <img src="{{ collection.image }}" alt="{{ _('Error while loading photo') }}" height="98%" width="98%">
-                    </div>
-                    {% endif %}
-                    {{ render_comments(collection) }}
-                </div>
-            </div>
+        <br>
+        {% if collection.image is not none %}
+        <div class="fade-in" style="display:block;margin:auto;">
+            <center>
+                <img  src="{{ collection.image }}" alt="{{ _('Error while loading photo') }}" height="98%" width="98%">
+            </center>
         </div>
         <br>
+        <br>
+        {% endif %}
+        {{ render_comments(collection) }}
+        {{ render_entity_ls(_('Composers'), entities.composers) }}
+        {{ render_entity_ls(_('Interpreters'), entities.interpreters) }}
+        {{ render_entity_ls(_('Other'), entities.others) }}
+        <br>
+        <div class="text-center">
+            {% if collection.origin is not none %}
+                <h4>Giro</h4>
+                <h3 class="indented"> {{ collection.origin }}</h3>
+                <br>
+            {% endif %}
+        </div>
+        <br>
+    </div>
+    <div>
         {{ render_recordings(works.page) }}
-        {{ render_paginator(works.page, '') }}
+        <div class="text-center">
+            {{ render_paginator(works.page, '') }}
+        </div>
     </div>
 {% endblock %}
