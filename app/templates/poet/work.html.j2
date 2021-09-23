@@ -17,13 +17,16 @@ render_table, render_work_dates, render_title %}
                 {{ render_comments(work) }}
             </div>
         </div>
-        <div class="row text-center">
-            <i><h3>{{ _('Part of') }}
-                    <strong>
-                        <a href="{{ url('collection', collection_id=work.in_collection) }}">{{ work.collection_name }}</a>
-                    </strong>
-                </h3></i>
-        </div>
+        <h3 class="row text-center">
+            {{ _('Part of') }}:
+            <ul>
+            {% for collection in in_collections %}
+                <li><strong>
+                    <a href="{{ url('collection', collection_id=collection.id) }}">{{ collection.collection_name }}</a>
+                </strong></li>
+            {% endfor %}
+            </ul>
+        </h3>
         <br>
         <div class="row">
             <div class="sub-container">

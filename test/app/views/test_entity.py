@@ -5,7 +5,7 @@ class TestEntity(TestCase):
     fixtures = ['poet']
 
     def setUp(self):
-        self.response = self.client.get('/entidad/1')
+        self.response = self.client.get('/entidad/187')
         self.response_404 = self.client.get('/entidad/1000')
 
     def test_200_collection(self):

@@ -27,6 +27,8 @@
         </div>
         <br>
         {{ render_recordings(works.page) }}
-        {{ render_paginator(works.page, '') }}
+        <div class="text-center">
+            {{ render_paginator(works.page, '') }}
+        </div>
    </div>
 {% endblock %}

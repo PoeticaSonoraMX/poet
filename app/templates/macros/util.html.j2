@@ -43,7 +43,6 @@
         <a href="{{ url("work", work_id=work.work_id) }}">{{ work.work_name }}</a>
 {% endmacro %}
 
-
 {%  macro render_entity(entity) -%}
         {{ render_name_link(entity) }} -
     {% if entity.relationship == 'Interpretación musical' %}
@@ -211,10 +210,14 @@
                             </div>
                             <br>
                             <div>
-                                {{ _('Part of') }}
-                                <strong>
-                                    <a href="{{ url('collection', collection_id=entry.work.in_collection) }}">{{ entry.work.collection_name }}</a>
-                                </strong>
+                                {{ _('Part of') }}:
+                                <ul>
+                                {% for collection in entry.in_collections %}
+                                    <li><strong>
+                                        <a href="{{ url('collection', collection_id=collection.id) }}">{{ collection.collection_name }}</a>
+                                    </strong></li>
+                                {% endfor %}
+                                </ul>
                             </div>
                             <br>
                             <div class="hide-mobile">

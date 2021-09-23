@@ -23,8 +23,6 @@ REQUIRED_WORK_FIELDS = """
         w.poetry_text,
         w.commentary,
         w.tags,
-        w.in_collection,
-        c.collection_name,
         w.audio
 """
 
@@ -33,10 +31,19 @@ def get_work(work_id: int):
     q = """
     SELECT {} 
     FROM poet_work w
-    JOIN poet_work_collection c ON w.in_collection = c.id
     WHERE w.id = %s AND w.release_state = %s""".format(REQUIRED_WORK_FIELDS)
 
     return u.query(q, [work_id, PUBLISHED])[0]
+
+
+def get_associated_collections(work_id: int):
+    q = """
+    SELECT c.id, c.collection_name
+    FROM poet_work_to_collection_rel crel
+    JOIN poet_work_collection c ON crel.to_collection = c.id
+    WHERE crel.from_work = %s"""
+
+    return u.query(q, [work_id])
 
 
 def get_work_or_404(work_id):
@@ -72,7 +79,8 @@ def get_entities(work_id: int) -> List[Dict[str, str]]:
 def enrich_work(work):
     return {
         'work': clean_work(work),
-        'entities': get_entities(work['id'])
+        'entities': get_entities(work['id']),
+        'in_collections': get_associated_collections(work['id']),
     }
 
 
