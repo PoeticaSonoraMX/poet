@@ -212,7 +212,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
         padding-right: 10%;
     }
     .show-mobile {
-        display: flow;
+        display: block;
     }
 }
 /* Portrait */
@@ -237,7 +237,9 @@ and (orientation: portrait) {
     .hide-mobile {
         display: none;
     }
-
+    .show-mobile {
+        display: block;
+    }
 }
 
 /* Landscape */
@@ -261,6 +263,9 @@ and (orientation: landscape) {
     }
     .hide-mobile {
         display: none;
+    }
+    .show-mobile {
+        display: block;
     }
 }
 

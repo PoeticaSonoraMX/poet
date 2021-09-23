@@ -66,7 +66,7 @@ function createWaveSurferElement(containerId, audioFilepath, waveformPeaks) {
         currentSpan = document.createElement('span');
         // totalSpan = document.createElement('span');
 
-    timeDiv.classList.add('col-md-5', 'col-sm-12', 'col-xs-12');
+    timeDiv.classList.add('col-md-5', 'col-sm-12', 'col-xs-12', 'text-center');
     const spanClass = 'time-span';
     // totalSpan.classList.add(spanClass);
     currentSpan.classList.add(spanClass);
