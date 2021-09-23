@@ -37,7 +37,6 @@ def get_recordings(collection_id: int):
 
 
 def get_entities(collection_id: int) -> List[Dict[str, str]]:
-
     q = """
     SELECT DISTINCT
         en.id entity_id,
