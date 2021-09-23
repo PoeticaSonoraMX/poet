@@ -28,8 +28,9 @@ def get_recordings(collection_id: int):
     q = """
     SELECT {}
     FROM poet_work w
-    JOIN poet_work_collection c ON c.id = w.in_collection
-    WHERE w.in_collection = %s
+    JOIN poet_work_to_collection_rel crel ON crel.from_work = w.id
+    JOIN poet_work_collection c ON c.id = crel.to_collection
+    WHERE crel.to_collection = %s
     AND w.release_state = %s""".format(work.REQUIRED_WORK_FIELDS)
 
     recordings = u.query(q, [collection_id, PUBLISHED])
@@ -44,9 +45,10 @@ def get_entities(collection_id: int) -> List[Dict[str, str]]:
         rel.relationship,
         rel.instrument
     FROM poet_entity_to_work_rel rel
+    JOIN poet_work_to_collection_rel crel ON crel.from_work = rel.to_work
     JOIN poet_entity en ON en.id = rel.from_entity
     JOIN poet_work pw ON rel.to_work = pw.id
-    WHERE pw.in_collection = %s
+    WHERE crel.to_collection = %s
     AND en.release_state = %s
     """
 

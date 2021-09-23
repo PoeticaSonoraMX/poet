@@ -20,4 +20,4 @@ class TestWorkModel(TestCase):
 
     def test_entity_rel_stringify(self):
         entity = EntityToEntityRel.objects.get(pk=1)
-        self.assertEqual(str(entity), 'Relación de Frágil a Iraida Noriega')
+        self.assertEqual(str(entity), 'Relación de Radio Educación a Bandcamp')

@@ -75,8 +75,9 @@ SELECT DISTINCT
     {fields},
     ts_rank_cd(t.vec, q) rank
 FROM poet_work w, {query} q, c, t
+JOIN poet_work_to_collection_rel crel ON crel.from_work = vec_id
 WHERE q @@ t.vec
-AND w.in_collection = c.collection_id
+AND crel.to_collection = c.collection_id
 AND w.id = t.vec_id
 AND w.release_state = 'PUBLICADO'
 ORDER BY rank DESC
@@ -90,9 +91,10 @@ WITH c AS (
 SELECT DISTINCT
     {fields},
     ts_rank_cd(c.vec, q) rank
-FROM poet_work w, {query} q, c
+FROM poet_work w, {query} q, c, poet_work_to_collection_rel crel
 WHERE q @@ c.vec
-AND w.in_collection = c.collection_id
+AND crel.from_work = w.id
+AND crel.to_collection = c.collection_id
 AND w.release_state = 'PUBLICADO'
 ORDER BY rank DESC
 """
@@ -109,9 +111,10 @@ SELECT DISTINCT
     {fields},
     ts_rank_cd(t.vec, q) rank
 FROM poet_work w, {query} q, c, t, poet_entity_to_work_rel rel
+JOIN poet_work_to_collection_rel crel ON crel.from_work = vec_id
 WHERE q @@ t.vec
 AND rel.to_work = w.id
-AND w.in_collection = c.collection_id
+AND crel.to_collection = c.collection_id
 AND rel.from_entity = t.vec_id
 AND w.release_state = 'PUBLICADO'
 ORDER BY rank DESC

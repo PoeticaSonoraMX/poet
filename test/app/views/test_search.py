@@ -5,7 +5,7 @@ class TestSearch(TestCase):
     fixtures = ['poet']
 
     def setUp(self):
-        self.response = self.client.get('/buscar/?term=che&filter=works')
+        self.response = self.client.get('/buscar/?term=guerra&filter=works')
 
     def test_200_search(self):
         self.assertEqual(self.response.status_code, 200)

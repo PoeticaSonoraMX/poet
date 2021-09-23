@@ -17,44 +17,11 @@ class TestSearchController(TestCase):
                                  "CONCAT(%s, ':*'), ' | ', CONCAT(%s, ':*')))")
 
     def test_search_work(self):
-        result = search.make_query(search.SEARCH_WORKS, [], '   ')
+        result = search.make_query(search.SEARCH_WORKS, [], '  ')
         self.assertListEqual(result, [])
 
-        result = search.make_query(search.SEARCH_WORKS, search.WORK_FIELDS, 'che')
-        self.assertEqual(len(result), 3)
-
-    def test_collection_counter(self):
-        d = {
-            1: {
-                'count': 2,
-                'name': 'hello'
-            }
-        }
-        result = search.collection_counter(d, 1, 'hmmm')
-        self.assertDictEqual(result, {
-            1: {
-                'count': 3,
-                'name': 'hello'
-            }
-        })
-        # reset mutable d
-        d = {
-            1: {
-                'count': 2,
-                'name': 'hello'
-            }
-        }
-        result = search.collection_counter(d, 2, 'hmmm')
-        self.assertDictEqual(result, {
-            1: {
-                'count': 2,
-                'name': 'hello'
-            },
-            2: {
-                'count': 1,
-                'name': 'hmmm'
-            }
-        })
+        result = search.make_query(search.SEARCH_WORKS, search.WORK_FIELDS, 'guerra')
+        self.assertEqual(len(result), 1)
 
     def test_dict_agg(self):
         d = defaultdict(int)

@@ -105,13 +105,6 @@ class Work(models.Model):
 
     history = HistoricalRecords()
 
-    in_collection = models.ForeignKey(
-        WorkCollection, verbose_name=_('Collection that this recording is a part of'), null=True,
-        on_delete=models.PROTECT, db_column='in_collection', blank=True
-    )
-
-    track_number = models.IntegerField(verbose_name=_('Track number in that collection'), blank=True, null=True)
-
     release_state = models.CharField(verbose_name=_('State of Publication'), max_length=32, choices=RELEASE_STATES_CHOICES, default=PENDING, db_column='release_state')
 
     languages = ArrayField(models.CharField(max_length=128), verbose_name=_('Languages Spoken'), blank=True, default=list, null=True)

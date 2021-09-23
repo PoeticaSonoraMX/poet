@@ -36,10 +36,11 @@ def get_affiliated_entities(entity_id: int):
 def get_recordings(entity_id: int):
     q = """
     SELECT DISTINCT {}
-    FROM poet_entity_to_work_rel rel
-    JOIN poet_work w ON rel.to_work = w.id
-    JOIN poet_work_collection c ON c.id = w.in_collection
-    AND rel.from_entity = %s
+    FROM poet_entity_to_work_rel erel
+    JOIN poet_work w ON erel.to_work = w.id
+    JOIN poet_work_to_collection_rel crel ON crel.from_work = w.id
+    JOIN poet_work_collection c ON c.id = crel.to_collection
+    AND erel.from_entity = %s
     AND w.release_state = %s""".format(work.REQUIRED_WORK_FIELDS)
 
     recordings = u.query(q, [entity_id, PUBLISHED])
