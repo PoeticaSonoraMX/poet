@@ -147,17 +147,6 @@ class Accumulator:
         )
 
 
-def collection_counter(d: Dict[int, dict], collection_id, collection_name):
-    maybe_counter = d.get(collection_id)
-    if maybe_counter:
-        d[collection_id]['count'] += 1
-    else:
-        d[collection_id] = {}
-        d[collection_id]['count'] = 1
-        d[collection_id]['name'] = collection_name
-    return d
-
-
 def dict_agg(d: defaultdict, ele: str):
     d[ele.strip().lower()] += 1
     return d
@@ -169,7 +158,6 @@ def get_aggregate_data(model_ls: List[Dict]) -> Accumulator:
         reduce(dict_agg, [] if ele['tags'] is None else ele['tags'], acc.tags)
         reduce(dict_agg, [] if ele['languages'] is None else ele['languages'], acc.languages)
 
-        collection_counter(acc.collections, ele['in_collection'], ele['collection_name'])
         if ele['city'] is not None:
             acc.cities[ele['city'].strip()] += 1
         if ele['copyright'] is not None:
@@ -182,8 +170,6 @@ def get_aggregate_data(model_ls: List[Dict]) -> Accumulator:
     accumulator.licenses = shuffle_and_take_fields(accumulator.licenses, 5)
     accumulator.cities = shuffle_and_take_fields(accumulator.cities, 5)
     accumulator.languages = shuffle_and_take_fields(accumulator.languages, 5)
-
-    accumulator.collections = shuffle_and_take_collections(accumulator.collections, 5)
 
     return accumulator
 

@@ -8,14 +8,6 @@
                 <a href="{{ url('search') }}?term={{ tag.name }}&filter=tags" style="font-size: {{ tag.count }}px">{{ tag.name }}</a>
             {% endfor %}
         </div>
-        <div>
-            <h3><i>{{ _("Collections") }}</i></h3>
-            {% for collection in metadata.collections %}
-                <div>
-                    <a href="{{ url('collection', collection.id) }}">{{ collection.name }}</a> - {{ collection.count }}
-                </div>
-            {% endfor %}
-        </div>
         {{ render_data_links(_('Licenses'), 'licenses', metadata.licenses) }}
         {{ render_data_links(_('Cities'), 'cities', metadata.cities) }}
         {{ render_data_links(_('Languages'), 'languages', metadata.languages) }}
