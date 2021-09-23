@@ -42,9 +42,9 @@ ENTITY_WORK_ROLE = (
 
 
 class EntityToWorkRel(models.Model):
-    from_entity = models.ForeignKey('Entity', verbose_name=_('From entity'), on_delete=models.CASCADE,
+    from_entity = models.ForeignKey('Entity', verbose_name=_('From entity'), on_delete=models.PROTECT,
                                     db_column='from_entity', related_name='ew_from_model')
-    to_work = models.ForeignKey('Work', verbose_name=_('To recording'), on_delete=models.CASCADE,
+    to_work = models.ForeignKey('Work', verbose_name=_('To recording'), on_delete=models.PROTECT,
                                 db_column='to_work', related_name='ew_to_model')
 
     relationship = models.CharField(max_length=256, verbose_name=_('Role'), choices=ENTITY_WORK_ROLE, default=READER)
@@ -74,4 +74,25 @@ class EntityToWorkRel(models.Model):
         verbose_name_plural = _('Roles')
 
 
+class WorkToCollection(models.Model):
+    from_work = models.ForeignKey('Work', verbose_name=_('From work'), on_delete=models.PROTECT, db_column='from_work',
+                                  related_name='wc_from_model')
+    to_collection = models.ForeignKey('WorkCollection', verbose_name=_('To collection'), on_delete=models.PROTECT,
+                                      db_column='to_collection', related_name='wc_to_model')
 
+    track_number = models.IntegerField(verbose_name=_('Track number in that collection'), blank=True, null=True)
+    # Arbitrary additional information
+    commentary = models.TextField(verbose_name=_('Additional commentary'), blank=True, null=True)
+    history = HistoricalRecords()
+
+    def __str__(self):
+        return gettext("{from_work} is Part of {to_collection}").format(
+            from_entity=self.from_work,
+            to_work=self.to_collection
+        )
+
+    class Meta:
+        managed = True
+        db_table = 'poet_work_to_collection_rel'
+        verbose_name = _('Member')
+        verbose_name_plural = _('Members')
