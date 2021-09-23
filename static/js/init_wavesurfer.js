@@ -44,6 +44,7 @@ function createWaveSurferElement(containerId, audioFilepath, waveformPeaks) {
     playDiv.classList.add('col-md-2', 'col-sm-3', 'col-xs-3');
 
     const playButton = document.createElement("button");
+    playButton.classList.add('borderless')
     playDiv.appendChild(playButton);
 
     playButton.innerHTML = "&#9658";
