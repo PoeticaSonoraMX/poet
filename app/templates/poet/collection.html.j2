@@ -17,9 +17,11 @@
         <br>
         {% endif %}
         {{ render_comments(collection) }}
+        <div class="sub-container">
         {{ render_entity_ls(_('Composers'), entities.composers) }}
         {{ render_entity_ls(_('Interpreters'), entities.interpreters) }}
         {{ render_entity_ls(_('Other'), entities.others) }}
+        </div>
         <br>
         <div class="text-center">
             {% if collection.origin is not none %}

@@ -56,13 +56,24 @@
 
 
 {% macro render_entity_ls(entity_type, entities) %}
+<h3>{{ entity_type|safe|title }}</h3>
 <div>
-    <h3>{{ entity_type }}</h3>
-    <h4>
-        {% for entity in entities %}
-            {{ render_entity(entity) }}
-        {% endfor %}
-    </h4>
+    <table class="table table-striped">
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td>{{ render_name_link(entity) }}</td>
+            <td>
+                {% if entity.relationship == 'Interpretación musical' %}
+                    {{ entity.instrument }}
+                {% else %}
+                    {{ entity.relationship }}
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
 </div>
 {% endmacro %}
 

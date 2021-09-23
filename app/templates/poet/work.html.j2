@@ -3,82 +3,88 @@
 render_table, render_work_dates, render_title %}
 
 {% block resultbody %}
-    <div class="center-block sub-container">
-        <br>
-        {{ render_title(user.is_authenticated, admin_link, work.work_name) }}
-        <br>
-        <br>
-        <div>
-            <div class="row" id="wavesurfer-container">
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-6">
-                    {{ render_entity_ls(_('Composers'), entities.composers) }}
-                    {{ render_entity_ls(_('Interpreters'), entities.interpreters) }}
-                    {{ render_entity_ls(_('Other'), entities.others) }}
-                    <i><h4>{{ _('Part of') }}
-                        <strong>
-                            <a href="{{ url('collection', collection_id=work.in_collection) }}">{{ work.collection_name }}</a>
-                        </strong>
-                    </h4></i>
-                    {{ render_work_dates(work) }}
-                </div>
-                <div class="col-md-6">
-                    {{ render_comments(work) }}
-
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                    {% if work.poetry_text is not none %}
-                        <h4 class="text-center">{{ _('Text') }}</h4>
-                        <br>
-                        <p class="skinny center-block"> {{ work.poetry_text }}</p>
-                        <br>
-                    {% endif %}
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    {% if list is not none %}
-                        <h3>
-                            {{ _('Tags') }}
-                        </h3>
-                        <div>
-                            <table class="table table-striped">
-                            <tbody>
-                            {% for entry in work.tags %}
-                                <tr>
-                                    <td><a href="{{ url('search') }}?term={{ entry }}&filter=tags">{{ entry }}</a></td>
-                                </tr>
-                            {% endfor %}
-                            </tbody>
-                            </table>
-                        </div>
-                   {% endif %}
-                </div>
-                <div class="col-md-6">
-                    {% if list is not none %}
-                        <h3>
-                            {{ _('Languages') }}
-                        </h3>
-                        <div>
-                            <table class="table table-striped">
-                            <tbody>
-                            {% for entry in work.languages %}
-                                <tr>
-                                    <td><a href="{{ url('search') }}?term={{ entry }}&filter=languages">{{ entry }}</a></td>
-                                </tr>
-                            {% endfor %}
-                            </tbody>
-                            </table>
-                        </div>
-                   {% endif %}
-                </div>
+<div class="center-block sub-container">
+    <br>
+    {{ render_title(user.is_authenticated, admin_link, work.work_name) }}
+    <br>
+    <br>
+    <div>
+        <div class="row" id="wavesurfer-container">
+        </div>
+        <br><br>
+        <div class="row">
+            <div class="text-center">
+                {{ render_comments(work) }}
             </div>
         </div>
-        {{ render_copyright(work) }}
-        <script>
+        <div class="row text-center">
+            <i><h3>{{ _('Part of') }}
+                    <strong>
+                        <a href="{{ url('collection', collection_id=work.in_collection) }}">{{ work.collection_name }}</a>
+                    </strong>
+                </h3></i>
+        </div>
+        <br>
+        <div class="row">
+            <div class="sub-container">
+                {{ render_entity_ls(_('Composers'), entities.composers) }}
+                {{ render_entity_ls(_('Interpreters'), entities.interpreters) }}
+                {{ render_entity_ls(_('Other'), entities.others) }}
+                <br>
+
+                {{ render_work_dates(work) }}
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            {% if work.poetry_text is not none %}
+            <h4 class="text-center">{{ _('Text') }}</h4>
+            <br>
+            <p class="skinny center-block"> {{ work.poetry_text }}</p>
+            <br>
+            {% endif %}
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                {% if list is not none %}
+                <h3>
+                    {{ _('Tags') }}
+                </h3>
+                <div>
+                    <table class="table table-striped">
+                        <tbody>
+                        {% for entry in work.tags %}
+                        <tr>
+                            <td><a href="{{ url('search') }}?term={{ entry }}&filter=tags">{{ entry }}</a></td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-md-6">
+                {% if list is not none %}
+                <h3>
+                    {{ _('Languages') }}
+                </h3>
+                <div>
+                    <table class="table table-striped">
+                        <tbody>
+                        {% for entry in work.languages %}
+                        <tr>
+                            <td><a href="{{ url('search') }}?term={{ entry }}&filter=languages">{{ entry }}</a></td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {{ render_copyright(work) }}
+    <script>
             let audioIterator = {
                 containersIds: ["wavesurfer-container"],
                 audioPaths: ["{{ work.audio }}"],
@@ -87,6 +93,7 @@ render_table, render_work_dates, render_title %}
             {% if work.waveform_peaks is not none %}
                 audioIterator.waveformPeaks = [{{ work.waveform_peaks }}];
             {% endif %}
-        </script>
-    </div>
+
+    </script>
+</div>
 {% endblock %}
