@@ -8,13 +8,13 @@ from app.models.relations import EntityToWorkRel
 class EntityAdmin(SimpleHistoryAdmin):
     list_display = ['id', '__str__', 'release_state']
     search_fields = ['full_name', 'alt_name']
-    ordering = ['release_state']
+    ordering = ['release_state', 'full_name', 'alt_name']
 
 
 class WorkAdmin(SimpleHistoryAdmin):
     list_display = ['id', '__str__', 'release_state']
     search_fields = ['full_name', 'alt_name']
-    ordering = ['release_state']
+    ordering = ['release_state', 'full_name', 'alt_name']
 
 
 class EntityToEntityRelAdmin(SimpleHistoryAdmin):
