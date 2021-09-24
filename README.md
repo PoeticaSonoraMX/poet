@@ -2,21 +2,25 @@
 
 ![build](https://github.com/davlum/poet/workflows/test/badge.svg)
 
-This is the code for the digital audio repository, [Poética Sonora](https://poeticasonora.me/). More about Poética Sonora can be found [here](https://poeticasonora.mx/).
+This is the code for the digital audio repository, [Poética Sonora](https://poeticasonora.unam.mx/rda). 
+More about Poética Sonora can be found [here](https://poeticasonora.unam.mx/).
 
-# Getting started
+## Getting started
 
-If you have [Docker](https://www.docker.com/) installed, the application can be brought up with 
-`docker-compose up`.
+If you have [Docker](https://www.docker.com/) installed, the application can be brought up with:
 
-If you are using [Pip](https://packaging.python.org/tutorials/installing-packages/), just run 
-`pip install -r dev_requirements.txt`.
+```bash
+$ docker-compose up
+```
 
-To run the tests, `python manage.py test`.
+Run the tests:
 
-# Documentation
+```bash
+$ make test
+```
+
+## Further Documentation
 
 1. [Setup](docs/setup.md)
 2. [Design](docs/design.md)
-3. [Improvements](docs/improvements.md)
 
