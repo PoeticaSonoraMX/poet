@@ -16,7 +16,7 @@ $ docker-compose up
 Run the tests:
 
 ```bash
-$ make test
+$ make tests
 ```
 
 ## Further Documentation
