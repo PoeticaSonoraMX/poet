@@ -47,8 +47,18 @@ function createWaveSurferElement(containerId, audioFilepath, waveformPeaks) {
     playButton.classList.add('borderless')
     playDiv.appendChild(playButton);
 
-    playButton.innerHTML = "&#9658";
-    playButton.onclick = function() { wavesurfer.playPause(); };
+    var paused = true;
+
+    playButton.innerHTML = "▶";
+    playButton.onclick = function() {
+        paused = !paused;
+        if (paused) {
+            playButton.innerHTML = "▶";
+        } else {
+            playButton.innerHTML = "■"
+        }
+        wavesurfer.playPause();
+    };
 
     const volumeDiv = document.createElement("div");
     buttonsDiv.appendChild(volumeDiv);
