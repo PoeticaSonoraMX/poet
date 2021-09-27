@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-27 19:15+0000\n"
+"POT-Creation-Date: 2021-09-27 18:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -190,7 +190,7 @@ msgid "Date ended"
 msgstr "Fecha final"
 
 #: app/models/entity.py:134
-#, python-brace-format
+#, fuzzy, python-brace-format
 msgid "Relation from '{from_entity}' to '{to_entity}'"
 msgstr "Relación de '{from_entity}' a '{to_entity}'"
 
@@ -211,8 +211,8 @@ msgid "To recording"
 msgstr "A la grabación"
 
 #: app/models/relations.py:50 app/models/relations.py:73
-msgid "Role"
-msgstr "Rol"
+msgid "role"
+msgstr "rol"
 
 #: app/models/relations.py:51
 msgid "Instrument"
@@ -228,7 +228,8 @@ msgstr ""
 "No es necesario seleccionar un instrumento si el rol no es interpretación"
 
 #: app/models/relations.py:65
-#, python-brace-format
+#, fuzzy, python-brace-format
+#| msgid "Relation from {from_entity} to {to_work}"
 msgid "Relation from '{from_entity}' to '{to_work}'"
 msgstr "Relación de {from_entity} a {to_work}"
 
@@ -241,6 +242,8 @@ msgid "From work"
 msgstr "De la obra"
 
 #: app/models/relations.py:80
+#, fuzzy
+#| msgid "Collections"
 msgid "To collection"
 msgstr "A la colección"
 
@@ -251,7 +254,7 @@ msgstr "Número de pista en esa colección"
 #: app/models/relations.py:89
 #, python-brace-format
 msgid "'{from_work}' is part of '{to_collection}'"
-msgstr "'{from_work}' es part de '{to_collection}'"
+msgstr "'{from_work}' es parte de '{to_collection}'"
 
 #: app/models/relations.py:97
 msgid "Playlist"
