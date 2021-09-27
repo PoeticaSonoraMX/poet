@@ -61,7 +61,7 @@ class WorkCollection(models.Model):
 
     album_art_design = models.CharField(max_length=512, verbose_name=_('Album art design'), null=True, blank=True)
 
-    origin = models.CharField(max_length=128, verbose_name=_('Origin'), blank=True, null=True)
+    origin = models.CharField(max_length=128, verbose_name=_('Provenance'), blank=True, null=True)
 
     commentary = models.TextField(verbose_name=_('Additional commentary'), blank=True, null=True)
     history = HistoricalRecords()
@@ -71,7 +71,7 @@ class WorkCollection(models.Model):
 
     def __str__(self):
         if self.collection_name is not None and self.collection_name.strip() != '':
-            return self.collection_name
+            return f'{self.id} - {self.collection_name}'
         return gettext('Collection {id}').format(id=self.id)
 
     class Meta:
@@ -141,9 +141,9 @@ class Work(models.Model):
 
     def __str__(self):
         if self.full_name is not None and self.full_name.strip() != '':
-            return self.full_name
+            return f'{self.id} - {self.full_name}'
         if self.alt_name is not None and self.alt_name.strip() != '':
-            return self.alt_name
+            return f'{self.id} - {self.alt_name}'
         return gettext('Recording {id}').format(id=self.id)
 
     class Meta:

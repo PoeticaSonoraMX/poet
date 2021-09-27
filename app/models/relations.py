@@ -86,7 +86,7 @@ class WorkToCollection(models.Model):
     history = HistoricalRecords()
 
     def __str__(self):
-        return gettext("'{from_work}' is Part of '{to_collection}'").format(
+        return gettext("'{from_work}' is part of '{to_collection}'").format(
             from_work=self.from_work,
             to_collection=self.to_collection
         )
@@ -94,5 +94,5 @@ class WorkToCollection(models.Model):
     class Meta:
         managed = True
         db_table = 'poet_work_to_collection_rel'
-        verbose_name = _('Collection Member')
-        verbose_name_plural = _('Collection Members')
+        verbose_name = _('Playlist')
+        verbose_name_plural = _('Playlists')

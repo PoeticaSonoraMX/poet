@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-27 14:53+0000\n"
+"POT-Creation-Date: 2021-09-27 18:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -190,9 +190,9 @@ msgid "Date ended"
 msgstr "Fecha final"
 
 #: app/models/entity.py:134
-#, python-brace-format
-msgid "Relation from {from_entity} to {to_entity}"
-msgstr "Relación de {from_entity} a {to_entity}"
+#, fuzzy, python-brace-format
+msgid "Relation from '{from_entity}' to '{to_entity}'"
+msgstr "Relación de '{from_entity}' a '{to_entity}'"
 
 #: app/models/entity.py:155
 msgid "Affiliation"
@@ -224,11 +224,13 @@ msgstr "Es necesario seleccionar un instrumento si el rol es interpretación"
 
 #: app/models/relations.py:61
 msgid "Must not select an instrument if role is not interpretation"
-msgstr "No es necesario seleccionar un instrumento si el rol no es interpretación"
+msgstr ""
+"No es necesario seleccionar un instrumento si el rol no es interpretación"
 
 #: app/models/relations.py:65
-#, python-brace-format
-msgid "Relation from {from_entity} to {to_work}"
+#, fuzzy, python-brace-format
+#| msgid "Relation from {from_entity} to {to_work}"
+msgid "Relation from '{from_entity}' to '{to_work}'"
 msgstr "Relación de {from_entity} a {to_work}"
 
 #: app/models/relations.py:74
@@ -251,16 +253,14 @@ msgstr "Número de pista en esa colección"
 
 #: app/models/relations.py:89
 #, python-brace-format
-msgid "{from_work} is Part of {to_collection}"
-msgstr "{from_work} es parte de {to_collection}"
+msgid "'{from_work}' is part of '{to_collection}'"
+msgstr "'{from_work}' es part de '{to_collection}'"
 
 #: app/models/relations.py:97
-#| msgid "Collection title"
 msgid "Playlist"
 msgstr "Lista de reproducción"
 
 #: app/models/relations.py:98
-#| msgid "Collections"
 msgid "Playlists"
 msgstr "Listas de reproducción"
 
@@ -374,7 +374,9 @@ msgstr "Esta página no existe."
 #: app/templates/errors/500.html.j2:7
 msgid ""
 "Something went wrong. If the problem persists please contact an administrator"
-msgstr "Algo salió mal. Si el problema persiste, favor de contactar a la administración"
+msgstr ""
+"Algo salió mal. Si el problema persiste, favor de contactar a la "
+"administración"
 
 #: app/templates/includes/_navbar.html.j2:15
 msgid "Home"

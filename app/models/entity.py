@@ -90,9 +90,9 @@ class Entity(models.Model):
 
     def __str__(self):
         if self.full_name is not None and self.full_name.strip() != '':
-            return self.full_name
+            return f'{self.id} - {self.full_name}'
         if self.alt_name is not None and self.alt_name.strip() != '':
-            return self.alt_name
+            return f'{self.id} - {self.alt_name}'
         return gettext('Entity {id}').format(id=self.id)
 
     class Meta:
@@ -131,7 +131,7 @@ class EntityToEntityRel(models.Model):
     history = HistoricalRecords()
 
     def __str__(self):
-        return gettext('Relation from {from_entity} to {to_entity}').format(
+        return gettext("Relation from '{from_entity}' to '{to_entity}'").format(
             from_entity=self.from_entity,
             to_entity=self.to_entity
         )
