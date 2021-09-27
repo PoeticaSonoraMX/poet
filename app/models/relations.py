@@ -94,5 +94,5 @@ class WorkToCollection(models.Model):
     class Meta:
         managed = True
         db_table = 'poet_work_to_collection_rel'
-        verbose_name = _('Member')
-        verbose_name_plural = _('Members')
+        verbose_name = _('Collection Member')
+        verbose_name_plural = _('Collection Members')

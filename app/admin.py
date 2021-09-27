@@ -2,7 +2,7 @@ from django.contrib import admin
 from simple_history.admin import SimpleHistoryAdmin
 from app.models.work import Work, WorkCollection
 from app.models.entity import Entity, EntityToEntityRel
-from app.models.relations import EntityToWorkRel
+from app.models.relations import EntityToWorkRel, WorkToCollection
 
 
 class EntityAdmin(SimpleHistoryAdmin):
@@ -46,8 +46,15 @@ class WorkCollectionAdmin(SimpleHistoryAdmin):
     ordering = ['release_state']
 
 
+class WorkToCollectionRelAdmin(SimpleHistoryAdmin):
+    list_display = ['id', '__str__']
+    search_fields = ['__str__']
+    ordering = ['__str__']
+
+
 admin.site.register(Entity, EntityAdmin)
 admin.site.register(EntityToEntityRel, EntityToEntityRelAdmin)
 admin.site.register(Work, WorkAdmin)
 admin.site.register(WorkCollection, WorkCollectionAdmin)
 admin.site.register(EntityToWorkRel, EntityToWorkRelAdmin)
+admin.site.register(WorkToCollection, WorkToCollectionRelAdmin)
