@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-27 17:36+0000\n"
+"POT-Creation-Date: 2021-09-27 14:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,7 +33,7 @@ msgstr "Etiquetas"
 
 #: app/controllers/search.py:17
 msgid "Collections"
-msgstr "Serie"
+msgstr "Colecciones"
 
 #: app/controllers/search.py:18 app/templates/includes/_sidebar.html.j2:13
 #: app/templates/poet/work.html.j2:72
@@ -78,7 +78,7 @@ msgstr "Nombre"
 
 #: app/models/entity.py:49
 msgid "Alternative name"
-msgstr "Nombre alternativo"
+msgstr "Alias"
 
 #: app/models/entity.py:51
 msgid "Entity Type"
@@ -196,7 +196,7 @@ msgstr "Relación de {from_entity} a {to_entity}"
 
 #: app/models/entity.py:155
 msgid "Affiliation"
-msgstr "Afiliacione"
+msgstr "Afiliación"
 
 #: app/models/entity.py:156
 msgid "Affiliations"
@@ -212,7 +212,7 @@ msgstr "A la grabación"
 
 #: app/models/relations.py:50 app/models/relations.py:73
 msgid "Role"
-msgstr "Role"
+msgstr "Rol"
 
 #: app/models/relations.py:51
 msgid "Instrument"
@@ -220,17 +220,16 @@ msgstr "Instrumento"
 
 #: app/models/relations.py:59
 msgid "Must select an instrument if role is interpretation"
-msgstr ""
+msgstr "Es necesario seleccionar un instrumento si el rol es interpretación"
 
 #: app/models/relations.py:61
 msgid "Must not select an instrument if role is not interpretation"
-msgstr ""
+msgstr "No es necesario seleccionar un instrumento si el rol no es interpretación"
 
 #: app/models/relations.py:65
-#, fuzzy, python-brace-format
-#| msgid "Relation from {from_entity} to {to_work}"
-msgid "Relation from '{from_entity}' to '{to_work}'"
-msgstr "Relación de '{from_entity}' a '{to_work}'"
+#, python-brace-format
+msgid "Relation from {from_entity} to {to_work}"
+msgstr "Relación de {from_entity} a {to_work}"
 
 #: app/models/relations.py:74
 msgid "Roles"
@@ -238,34 +237,36 @@ msgstr "Roles"
 
 #: app/models/relations.py:78
 msgid "From work"
-msgstr ""
+msgstr "De la obra"
 
 #: app/models/relations.py:80
 #, fuzzy
 #| msgid "Collections"
 msgid "To collection"
-msgstr "Serie"
+msgstr "A la colección"
 
 #: app/models/relations.py:83
 msgid "Track number in that collection"
 msgstr "Número de pista en esa colección"
 
 #: app/models/relations.py:89
-#| msgid "{from_work} is Part of {to_collection}"
-msgid "'{from_work}' is Part of '{to_collection}'"
-msgstr "'{from_work}' part de '{to_collection}'"
+#, python-brace-format
+msgid "{from_work} is Part of {to_collection}"
+msgstr "{from_work} es parte de {to_collection}"
 
 #: app/models/relations.py:97
-msgid "Collection Member"
-msgstr "Serie Miembro"
+#| msgid "Collection title"
+msgid "Playlist"
+msgstr "Lista de reproducción"
 
 #: app/models/relations.py:98
-msgid "Collection Members"
-msgstr "Serie Miembros"
+#| msgid "Collections"
+msgid "Playlists"
+msgstr "Listas de reproducción"
 
 #: app/models/work.py:58
 msgid "Collection title"
-msgstr "Título de la serie"
+msgstr "Título de la colección"
 
 #: app/models/work.py:60
 msgid "Album art"
@@ -276,8 +277,8 @@ msgid "Album art design"
 msgstr "Diseño de ilustración"
 
 #: app/models/work.py:64
-msgid "Origin"
-msgstr "Origen"
+msgid "Provenance"
+msgstr "Procedencia"
 
 #: app/models/work.py:75
 #, python-brace-format
@@ -342,7 +343,7 @@ msgstr "Licencia"
 
 #: app/models/work.py:121
 msgid "License version"
-msgstr "Versión de licencia"
+msgstr "Versión de la licencia"
 
 #: app/models/work.py:122
 msgid "Country of License"
@@ -355,7 +356,7 @@ msgstr "Grabación {id}"
 
 #: app/templates/errors/400.html.j2:7
 msgid "Something was wrong with the request you made."
-msgstr "Algo salió mal."
+msgstr "Algo salió mal con tu consulta."
 
 #: app/templates/errors/400.html.j2:8 app/templates/errors/403.html.j2:8
 #: app/templates/errors/404.html.j2:9 app/templates/errors/500.html.j2:8
@@ -364,16 +365,16 @@ msgstr "Regresa"
 
 #: app/templates/errors/403.html.j2:7
 msgid "You are not authorized to access this page"
-msgstr "No autorizado, No tienes permiso para acceder a esta página."
+msgstr "No tienes permiso para acceder a esta página."
 
 #: app/templates/errors/404.html.j2:8
 msgid "This page does not exist"
-msgstr "No hay nada aquí."
+msgstr "Esta página no existe."
 
 #: app/templates/errors/500.html.j2:7
 msgid ""
 "Something went wrong. If the problem persists please contact an administrator"
-msgstr "Algo salió mal."
+msgstr "Algo salió mal. Si el problema persiste, favor de contactar a la administración"
 
 #: app/templates/includes/_navbar.html.j2:15
 msgid "Home"
@@ -393,7 +394,7 @@ msgstr "Administración"
 
 #: app/templates/includes/_navbar.html.j2:23
 msgid "Logout"
-msgstr "Cerrar Sesión"
+msgstr "Cerrar sesión"
 
 #: app/templates/includes/_searchbar.html.j2:5
 msgid "Search"
@@ -431,7 +432,7 @@ msgid "Text"
 msgstr "Texto"
 
 #~ msgid "Collection that this recording is a part of"
-#~ msgstr "Serie a la que pertenece"
+#~ msgstr "Colección a la que pertenece"
 
 #~ msgid "Commentary"
 #~ msgstr "Comentario"
@@ -443,7 +444,7 @@ msgstr "Texto"
 #~ msgstr "obra/<int:work_id>"
 
 #~ msgid "collection/<int:collection_id>"
-#~ msgstr "coleccion/<int:collection_id>"
+#~ msgstr "colección/<int:collection_id>"
 
 #~ msgid "entity/<int:entity_id>"
 #~ msgstr "entidad/<int:entity_id>"
