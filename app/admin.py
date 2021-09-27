@@ -48,8 +48,8 @@ class WorkCollectionAdmin(SimpleHistoryAdmin):
 
 class WorkToCollectionRelAdmin(SimpleHistoryAdmin):
     list_display = ['id', '__str__']
-    search_fields = ['__str__']
-    ordering = ['__str__']
+    search_fields = ['from_work__ful_name', 'to_collection__collection_name']
+    ordering = ['from_work__full_name', 'to_collection__collection_name']
 
 
 admin.site.register(Entity, EntityAdmin)

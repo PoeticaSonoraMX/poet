@@ -62,7 +62,7 @@ class EntityToWorkRel(models.Model):
         super(EntityToWorkRel, self).clean(*args, **kwargs)
 
     def __str__(self):
-        return gettext("Relation from {from_entity} to {to_work}").format(
+        return gettext("Relation from '{from_entity}' to '{to_work}'").format(
             from_entity=self.from_entity,
             to_work=self.to_work
         )
@@ -86,9 +86,9 @@ class WorkToCollection(models.Model):
     history = HistoricalRecords()
 
     def __str__(self):
-        return gettext("{from_work} is Part of {to_collection}").format(
-            from_entity=self.from_work,
-            to_work=self.to_collection
+        return gettext("'{from_work}' is Part of '{to_collection}'").format(
+            from_work=self.from_work,
+            to_collection=self.to_collection
         )
 
     class Meta:
