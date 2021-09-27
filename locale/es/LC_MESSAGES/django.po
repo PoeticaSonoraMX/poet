@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-27 14:53+0000\n"
+"POT-Creation-Date: 2021-09-27 17:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -227,9 +227,10 @@ msgid "Must not select an instrument if role is not interpretation"
 msgstr ""
 
 #: app/models/relations.py:65
-#, python-brace-format
-msgid "Relation from {from_entity} to {to_work}"
-msgstr "Relación de {from_entity} a {to_work}"
+#, fuzzy, python-brace-format
+#| msgid "Relation from {from_entity} to {to_work}"
+msgid "Relation from '{from_entity}' to '{to_work}'"
+msgstr "Relación de '{from_entity}' a '{to_work}'"
 
 #: app/models/relations.py:74
 msgid "Roles"
@@ -250,17 +251,15 @@ msgid "Track number in that collection"
 msgstr "Número de pista en esa colección"
 
 #: app/models/relations.py:89
-#, python-brace-format
-msgid "{from_work} is Part of {to_collection}"
-msgstr "{from_work} part de {to_collection}"
+#| msgid "{from_work} is Part of {to_collection}"
+msgid "'{from_work}' is Part of '{to_collection}'"
+msgstr "'{from_work}' part de '{to_collection}'"
 
 #: app/models/relations.py:97
-#| msgid "Collection title"
 msgid "Collection Member"
 msgstr "Serie Miembro"
 
 #: app/models/relations.py:98
-#| msgid "Collections"
 msgid "Collection Members"
 msgstr "Serie Miembros"
 
