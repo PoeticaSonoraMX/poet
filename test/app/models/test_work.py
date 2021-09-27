@@ -16,8 +16,8 @@ class TestWorkModel(TestCase):
         title_string = 'title_string'
         work_collection.collection_name = title_string
         work_collection.save()
-        self.assertEqual(str(work_collection), title_string)
+        self.assertEqual(str(work_collection), f'415 - {title_string}')
 
     def test_work_stringify_default(self):
         work = Work.objects.get(pk=1)
-        self.assertEqual(str(work), 'La guerra es una locura extrema')
+        self.assertEqual(str(work), '1 - La guerra es una locura extrema')
