@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-21 17:54+0000\n"
+"POT-Creation-Date: 2021-09-27 14:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: app/controllers/search.py:14 app/models/work.py:160
+#: app/controllers/search.py:14 app/models/work.py:153
 msgid "Recordings"
 msgstr "Grabaciones"
 
@@ -27,24 +27,24 @@ msgid "Authors"
 msgstr "Autores"
 
 #: app/controllers/search.py:16 app/models/work.py:99
-#: app/templates/includes/_sidebar.html.j2:6 app/templates/poet/work.html.j2:45
+#: app/templates/includes/_sidebar.html.j2:6 app/templates/poet/work.html.j2:54
 msgid "Tags"
 msgstr "Etiquetas"
 
-#: app/controllers/search.py:17 app/templates/includes/_sidebar.html.j2:12
+#: app/controllers/search.py:17
 msgid "Collections"
 msgstr "Serie"
 
-#: app/controllers/search.py:18 app/templates/includes/_sidebar.html.j2:21
-#: app/templates/poet/work.html.j2:63
+#: app/controllers/search.py:18 app/templates/includes/_sidebar.html.j2:13
+#: app/templates/poet/work.html.j2:72
 msgid "Languages"
 msgstr "Idiomas"
 
-#: app/controllers/search.py:19 app/templates/includes/_sidebar.html.j2:19
+#: app/controllers/search.py:19 app/templates/includes/_sidebar.html.j2:11
 msgid "Licenses"
 msgstr "Licencias"
 
-#: app/controllers/search.py:20 app/templates/includes/_sidebar.html.j2:20
+#: app/controllers/search.py:20 app/templates/includes/_sidebar.html.j2:12
 msgid "Cities"
 msgstr "Ciudades"
 
@@ -97,7 +97,7 @@ msgid "Email"
 msgstr "Correo electrónico"
 
 #: app/models/entity.py:60 app/models/entity.py:130 app/models/relations.py:54
-#: app/models/work.py:66 app/models/work.py:103
+#: app/models/relations.py:85 app/models/work.py:66 app/models/work.py:103
 msgid "Additional commentary"
 msgstr "Comentario adicional"
 
@@ -129,7 +129,7 @@ msgstr "Relación con otras entidades"
 msgid "Relationship to recordings"
 msgstr "Relación con grabaciones"
 
-#: app/models/entity.py:75 app/models/work.py:69 app/models/work.py:115
+#: app/models/entity.py:75 app/models/work.py:69 app/models/work.py:108
 msgid "State of Publication"
 msgstr "Estado de la publicación"
 
@@ -235,6 +235,35 @@ msgstr "Relación de {from_entity} a {to_work}"
 msgid "Roles"
 msgstr "Roles"
 
+#: app/models/relations.py:78
+msgid "From work"
+msgstr ""
+
+#: app/models/relations.py:80
+#, fuzzy
+#| msgid "Collections"
+msgid "To collection"
+msgstr "Serie"
+
+#: app/models/relations.py:83
+msgid "Track number in that collection"
+msgstr "Número de pista en esa colección"
+
+#: app/models/relations.py:89
+#, python-brace-format
+msgid "{from_work} is Part of {to_collection}"
+msgstr "{from_work} part de {to_collection}"
+
+#: app/models/relations.py:97
+#| msgid "Collection title"
+msgid "Collection Member"
+msgstr "Serie Miembro"
+
+#: app/models/relations.py:98
+#| msgid "Collections"
+msgid "Collection Members"
+msgstr "Serie Miembros"
+
 #: app/models/work.py:58
 msgid "Collection title"
 msgstr "Título de la serie"
@@ -272,7 +301,7 @@ msgstr "Título"
 msgid "Alternative title"
 msgstr "Título alternativo"
 
-#: app/models/work.py:95 app/models/work.py:159
+#: app/models/work.py:95 app/models/work.py:152
 msgid "Recording"
 msgstr "Grabación"
 
@@ -284,51 +313,43 @@ msgstr "URL externo"
 msgid "Composition text"
 msgstr "Texto de la composición"
 
-#: app/models/work.py:109
-msgid "Collection that this recording is a part of"
-msgstr "Serie a la que pertenece"
-
-#: app/models/work.py:113
-msgid "Track number in that collection"
-msgstr "Número de pista en esa colección"
-
-#: app/models/work.py:117
+#: app/models/work.py:110
 msgid "Languages Spoken"
 msgstr "Idiomas hablados"
 
-#: app/models/work.py:119
+#: app/models/work.py:112
 msgid "Date published"
 msgstr "Fecha de publicación"
 
-#: app/models/work.py:120
+#: app/models/work.py:113
 msgid "Date digitized"
 msgstr "Fecha de digitalización"
 
-#: app/models/work.py:121
+#: app/models/work.py:114
 msgid "Date recorded"
 msgstr "Fecha de grabación"
 
-#: app/models/work.py:122
+#: app/models/work.py:115
 msgid "Date contributed"
 msgstr "Fecha de contribución"
 
-#: app/models/work.py:124
+#: app/models/work.py:117
 msgid "Media of origin"
 msgstr "Medio o formato de origen"
 
-#: app/models/work.py:127
+#: app/models/work.py:120
 msgid "License"
 msgstr "Licencia"
 
-#: app/models/work.py:128
+#: app/models/work.py:121
 msgid "License version"
 msgstr "Versión de licencia"
 
-#: app/models/work.py:129
+#: app/models/work.py:122
 msgid "Country of License"
 msgstr "País de la licencia"
 
-#: app/models/work.py:154
+#: app/models/work.py:147
 #, python-brace-format
 msgid "Recording {id}"
 msgstr "Grabación {id}"
@@ -355,64 +376,66 @@ msgid ""
 "Something went wrong. If the problem persists please contact an administrator"
 msgstr "Algo salió mal."
 
-#: app/templates/includes/_navbar.html.j2:8
+#: app/templates/includes/_navbar.html.j2:15
 msgid "Home"
 msgstr "Inicio"
 
-#: app/templates/includes/_navbar.html.j2:9
+#: app/templates/includes/_navbar.html.j2:16
 msgid "About"
 msgstr "Sobre el proyecto"
 
-#: app/templates/includes/_navbar.html.j2:13
+#: app/templates/includes/_navbar.html.j2:20
 msgid "Login"
 msgstr "Iniciar sesión"
 
-#: app/templates/includes/_navbar.html.j2:15
+#: app/templates/includes/_navbar.html.j2:22
 msgid "Admin"
 msgstr "Administración"
 
-#: app/templates/includes/_navbar.html.j2:16
+#: app/templates/includes/_navbar.html.j2:23
 msgid "Logout"
 msgstr "Cerrar Sesión"
 
-#: app/templates/includes/_searchbar.html.j2:4
+#: app/templates/includes/_searchbar.html.j2:5
 msgid "Search"
 msgstr "Buscar"
 
-#: app/templates/macros/util.html.j2:29
+#: app/templates/macros/util.html.j2:26
 msgid "Edit"
 msgstr "Editar"
 
-#: app/templates/macros/util.html.j2:87
-msgid "Commentary"
-msgstr "Comentario"
-
-#: app/templates/macros/util.html.j2:97
-#: app/templates/poet/collection.html.j2:12 app/templates/poet/work.html.j2:17
+#: app/templates/macros/util.html.j2:106
+#: app/templates/poet/collection.html.j2:21 app/templates/poet/work.html.j2:33
 msgid "Composers"
 msgstr "Compositores"
 
-#: app/templates/macros/util.html.j2:98
-#: app/templates/poet/collection.html.j2:13 app/templates/poet/work.html.j2:18
+#: app/templates/macros/util.html.j2:107
+#: app/templates/poet/collection.html.j2:22 app/templates/poet/work.html.j2:34
 msgid "Interpreters"
 msgstr "Intérpretes"
 
-#: app/templates/macros/util.html.j2:99
-#: app/templates/poet/collection.html.j2:14 app/templates/poet/work.html.j2:19
+#: app/templates/macros/util.html.j2:109
+#: app/templates/poet/collection.html.j2:23 app/templates/poet/work.html.j2:35
 msgid "Other"
 msgstr "Otros"
 
-#: app/templates/macros/util.html.j2:199 app/templates/poet/work.html.j2:20
+#: app/templates/macros/util.html.j2:213 app/templates/poet/work.html.j2:21
 msgid "Part of"
 msgstr "Parte de"
 
-#: app/templates/poet/collection.html.j2:27
+#: app/templates/poet/collection.html.j2:13
 msgid "Error while loading photo"
 msgstr "Error al cargar la imagen"
 
-#: app/templates/poet/work.html.j2:35
+#: app/templates/poet/work.html.j2:44
 msgid "Text"
 msgstr "Texto"
+
+#~ msgid "Collection that this recording is a part of"
+#~ msgstr "Serie a la que pertenece"
+
+#~ msgid "Commentary"
+#~ msgstr "Comentario"
 
 #~ msgid "home"
 #~ msgstr "inicio"
