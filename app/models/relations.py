@@ -47,7 +47,7 @@ class EntityToWorkRel(models.Model):
     to_work = models.ForeignKey('Work', verbose_name=_('To recording'), on_delete=models.PROTECT,
                                 db_column='to_work', related_name='ew_to_model')
 
-    relationship = models.CharField(max_length=256, verbose_name=_('Role'), choices=ENTITY_WORK_ROLE, default=READER)
+    relationship = models.CharField(max_length=256, verbose_name=_('role'), choices=ENTITY_WORK_ROLE, default=READER)
     instrument = models.CharField(max_length=256, verbose_name=_('Instrument'), blank=True, null=True)
 
     # Arbitrary additional information
@@ -70,7 +70,7 @@ class EntityToWorkRel(models.Model):
     class Meta:
         managed = True
         db_table = 'poet_entity_to_work_rel'
-        verbose_name = _('Role')
+        verbose_name = _('role')
         verbose_name_plural = _('Roles')
 
 

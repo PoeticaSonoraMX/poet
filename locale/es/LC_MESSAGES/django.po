@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-27 18:57+0000\n"
+"POT-Creation-Date: 2021-10-21 16:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,7 +48,7 @@ msgstr "Licencias"
 msgid "Cities"
 msgstr "Ciudades"
 
-#: app/models/choices.py:10
+#: app/models/choices.py:10 app/templates/macros/util.html.j2:156
 msgid "Published"
 msgstr "Publicada"
 
@@ -228,8 +228,7 @@ msgstr ""
 "No es necesario seleccionar un instrumento si el rol no es interpretación"
 
 #: app/models/relations.py:65
-#, fuzzy, python-brace-format
-#| msgid "Relation from {from_entity} to {to_work}"
+#, python-brace-format
 msgid "Relation from '{from_entity}' to '{to_work}'"
 msgstr "Relación de {from_entity} a {to_work}"
 
@@ -242,8 +241,6 @@ msgid "From work"
 msgstr "De la obra"
 
 #: app/models/relations.py:80
-#, fuzzy
-#| msgid "Collections"
 msgid "To collection"
 msgstr "A la colección"
 
@@ -254,7 +251,7 @@ msgstr "Número de pista en esa colección"
 #: app/models/relations.py:89
 #, python-brace-format
 msgid "'{from_work}' is part of '{to_collection}'"
-msgstr "'{from_work}' es parte de '{to_collection}'"
+msgstr "'{from_work}' es part de '{to_collection}'"
 
 #: app/models/relations.py:97
 msgid "Playlist"
@@ -337,7 +334,7 @@ msgstr "Fecha de contribución"
 msgid "Media of origin"
 msgstr "Medio o formato de origen"
 
-#: app/models/work.py:120
+#: app/models/work.py:120 app/templates/macros/util.html.j2:147
 msgid "License"
 msgstr "Licencia"
 
@@ -420,6 +417,14 @@ msgstr "Intérpretes"
 #: app/templates/poet/collection.html.j2:23 app/templates/poet/work.html.j2:35
 msgid "Other"
 msgstr "Otros"
+
+#: app/templates/macros/util.html.j2:164
+msgid "Recorded"
+msgstr "Grabación"
+
+#: app/templates/macros/util.html.j2:172
+msgid "Contributed"
+msgstr "Fecha de contribución"
 
 #: app/templates/macros/util.html.j2:213 app/templates/poet/work.html.j2:21
 msgid "Part of"
