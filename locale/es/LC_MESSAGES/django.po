@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-21 16:43+0000\n"
+"POT-Creation-Date: 2021-10-21 17:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -85,10 +85,12 @@ msgid "Entity Type"
 msgstr "Tipo de entidad"
 
 #: app/models/entity.py:54 app/models/work.py:92
+#: app/templates/macros/util.html.j2:180
 msgid "City"
 msgstr "Ciudad"
 
 #: app/models/entity.py:55 app/models/work.py:93
+#: app/templates/macros/util.html.j2:188
 msgid "Country"
 msgstr "País"
 
@@ -426,7 +428,7 @@ msgstr "Grabación"
 msgid "Contributed"
 msgstr "Fecha de contribución"
 
-#: app/templates/macros/util.html.j2:213 app/templates/poet/work.html.j2:21
+#: app/templates/macros/util.html.j2:229 app/templates/poet/work.html.j2:21
 msgid "Part of"
 msgstr "Parte de"
 

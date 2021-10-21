@@ -35,12 +35,12 @@
 
 
 {%  macro render_name_link(entity) -%}
-        <a href="{{ url("entity", entity_id=entity.entity_id) }}">{{ entity.entity_name }}</a>
+        <a href="{{ url('entity', entity_id=entity.entity_id) }}">{{ entity.entity_name }}</a>
 {% endmacro %}
 
 
 {%  macro render_work_link(work) -%}
-        <a href="{{ url("work", work_id=work.work_id) }}">{{ work.work_name }}</a>
+        <a href="{{ url('work', work_id=work.work_id) }}">{{ work.work_name }}</a>
 {% endmacro %}
 
 {%  macro render_entity(entity) -%}
@@ -175,6 +175,22 @@
          {{ work.date_contributed }}
     </div>
 </div>
+<div class="row">
+    <div class="col-md-5 col-sm-5 col-xs-5">
+        {{ _('City') }}:
+    </div>
+    <div class="col-md-7 col-sm-7 col-xs-7">
+         {{ work.city }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5 col-sm-5 col-xs-5">
+        {{ _('Country') }}:
+    </div>
+    <div class="col-md-7 col-sm-7 col-xs-7">
+         {{ work.country }}
+    </div>
+</div>
 {% endmacro %}
 
 {% macro render_recordings(list) -%}
@@ -196,7 +212,7 @@
                             <div class="wavesurfer-padding" id="wavesurfer-container-{{ loop.index }}">
                             </div>
                             <div class="row">
-                                <a href="{{ url("work", work_id=entry.work.work_id) }}">
+                                <a href="{{ url('work', work_id=entry.work.work_id) }}">
                                     <h3>{{ entry.work.work_name }}</h3>
                                 </a>
                             </div>
