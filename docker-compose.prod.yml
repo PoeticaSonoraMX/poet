@@ -1,11 +1,13 @@
 version: '3'
 services:
   db:
+    restart: always
     image: postgres:12-alpine
     env_file: /home/poetica/environ
     volumes:
     - /home/www/pg_data:/var/lib/postgresql/data/
   django:
+    restart: always
     build:
       target: app
       context: .
