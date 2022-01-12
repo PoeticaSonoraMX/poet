@@ -400,6 +400,17 @@ a.underline{
     background: none;
 }
 
+.responsive {
+  max-width: 100%;
+  height: auto;
+}
+
+.btn-primary-green {
+    color: #fff;
+    background-color: #76ce00;
+    border-color: #549104;
+}
+
 body {
     font-family: "Palatino Linotype" , serif;
     -moz-osx-font-smoothing: grayscale;
