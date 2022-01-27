@@ -6,7 +6,7 @@ a { color: inherit; }
 
 .sidebar-dims{
     height: 700px;
-    width: 60%;
+    width: 100%;
     overflow-y: scroll;
 }
 
