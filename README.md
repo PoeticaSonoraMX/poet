@@ -2,8 +2,8 @@
 
 ![build](https://github.com/davlum/poet/workflows/test/badge.svg)
 
-This is the code for the digital audio repository, [Poética Sonora](https://poeticasonora.unam.mx/rda). 
-More about Poética Sonora can be found [here](https://poeticasonora.unam.mx/).
+Este es el código para el Repositorio Digital de Audio, / This is the code for the digital audio repository, [PoéticaSonoraMX](https://poeticasonora.unam.mx/rda). 
+Para saber más sobre PoéticaSonoraMX / More about PoéticaSonoraMX can be found [here](https://poeticasonora.unam.mx/).
 
 ## Getting started
 
