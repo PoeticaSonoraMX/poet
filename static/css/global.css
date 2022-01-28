@@ -180,7 +180,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
     }
 
     .sub-container {
-        width: 80%;
+        width: 95%;
     }
     .hide-mobile {
         display: none;
@@ -271,12 +271,13 @@ and (orientation: landscape) {
 
 small {
 	display: inline-block;
-	font-size: 1.3rem;
-        letter-spacing: 0.1rem;
+	font-size: 1.4rem;
+        letter-spacing: 0.03rem;
 	line-height: 1;
 	font-family: "Droid Serif", Open Sans, Helvetica, sans-serif !important;
 	font-style: normal;
-	color: rgb(32, 33, 35);
+	font-weight: 600;
+	color: rgb(108, 108, 108);
 }
 
 small a {
