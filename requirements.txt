@@ -4,7 +4,7 @@ Django==2.2.24
 django-jinja==2.4.1
 django-simple-history==2.7.0
 docopt==0.6.2
-gunicorn==19.9.0
+gunicorn==23.0.0
 idna==2.8
 Jinja2==2.11.3
 MarkupSafe==1.1.0
