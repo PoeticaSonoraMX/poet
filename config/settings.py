@@ -202,10 +202,11 @@ FILE_UPLOAD_PERMISSIONS = 0o774
 
 # Email
 EMAIL_USE_TLS = True
-EMAIL_HOST = os.environ['APP_MAIL_USERNAME']
-EMAIL_HOST_USER = 'poetica.sonora.auto@gmail.com'
+EMAIL_HOST = os.environ.get('APP_MAIL_HOST', 'smtp.gmail.com')
+EMAIL_HOST_USER = os.environ['APP_MAIL_USERNAME']
 EMAIL_HOST_PASSWORD = os.environ['APP_MAIL_PASSWORD']
-EMAIL_PORT = 587
+EMAIL_PORT = int(os.environ.get('APP_MAIL_PORT', 587))
+DEFAULT_FROM_EMAIL = os.environ.get('APP_MAIL_FROM', EMAIL_HOST_USER)
 
 EMAIL_BACKEND = os.environ['EMAIL_BACKEND']
 
